@@ -24,6 +24,7 @@ pub const fn mat2(x_axis: Vec2, y_axis: Vec2) -> Mat2 {
 )]
 #[cfg_attr(feature = "cuda", repr(align(8)))]
 #[repr(C)]
+#[cfg_attr(target_arch = "spirv", rust_gpu::spirv(matrix))]
 pub struct Mat2 {
     pub x_axis: Vec2,
     pub y_axis: Vec2,

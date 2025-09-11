@@ -53,6 +53,7 @@ pub const fn dmat4(x_axis: DVec4, y_axis: DVec4, z_axis: DVec4, w_axis: DVec4) -
 )]
 #[cfg_attr(feature = "cuda", repr(align(16)))]
 #[repr(C)]
+#[cfg_attr(target_arch = "spirv", rust_gpu::spirv(matrix))]
 pub struct DMat4 {
     pub x_axis: DVec4,
     pub y_axis: DVec4,

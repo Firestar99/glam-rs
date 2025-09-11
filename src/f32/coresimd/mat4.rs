@@ -55,6 +55,7 @@ pub const fn mat4(x_axis: Vec4, y_axis: Vec4, z_axis: Vec4, w_axis: Vec4) -> Mat
     derive(bytemuck::Pod, bytemuck::Zeroable)
 )]
 #[repr(C)]
+#[cfg_attr(target_arch = "spirv", rust_gpu::spirv(matrix))]
 pub struct Mat4 {
     pub x_axis: Vec4,
     pub y_axis: Vec4,

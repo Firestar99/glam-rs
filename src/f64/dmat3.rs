@@ -47,6 +47,7 @@ pub const fn dmat3(x_axis: DVec3, y_axis: DVec3, z_axis: DVec3) -> DMat3 {
     derive(bytemuck::Pod, bytemuck::Zeroable)
 )]
 #[repr(C)]
+#[cfg_attr(target_arch = "spirv", rust_gpu::spirv(matrix))]
 pub struct DMat3 {
     pub x_axis: DVec3,
     pub y_axis: DVec3,

@@ -20,6 +20,7 @@ pub const fn dmat2(x_axis: DVec2, y_axis: DVec2) -> DMat2 {
 )]
 #[cfg_attr(feature = "cuda", repr(align(16)))]
 #[repr(C)]
+#[cfg_attr(target_arch = "spirv", rust_gpu::spirv(matrix))]
 pub struct DMat2 {
     pub x_axis: DVec2,
     pub y_axis: DVec2,

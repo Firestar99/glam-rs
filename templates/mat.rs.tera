@@ -220,9 +220,11 @@ pub const fn {{ self_t | lower }}(
 {%- endif %}
 {%- if self_t == "Mat2" and not is_scalar %}
 #[repr(transparent)]
+#[cfg_attr(target_arch = "spirv", rust_gpu::spirv(matrix))]
 pub struct {{ self_t }}(pub(crate) {{ simd_t }});
 {%- else %}
 #[repr(C)]
+#[cfg_attr(target_arch = "spirv", rust_gpu::spirv(matrix))]
 pub struct {{ self_t }}
 {
     {% for axis in axes %}

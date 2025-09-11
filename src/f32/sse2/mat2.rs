@@ -34,6 +34,7 @@ pub const fn mat2(x_axis: Vec2, y_axis: Vec2) -> Mat2 {
     derive(bytemuck::Pod, bytemuck::Zeroable)
 )]
 #[repr(transparent)]
+#[cfg_attr(target_arch = "spirv", rust_gpu::spirv(matrix))]
 pub struct Mat2(pub(crate) __m128);
 
 impl Mat2 {

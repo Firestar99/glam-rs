@@ -47,6 +47,7 @@ pub const fn mat3a(x_axis: Vec3A, y_axis: Vec3A, z_axis: Vec3A) -> Mat3A {
     derive(bytemuck::AnyBitPattern)
 )]
 #[repr(C)]
+#[cfg_attr(target_arch = "spirv", rust_gpu::spirv(matrix))]
 pub struct Mat3A {
     pub x_axis: Vec3A,
     pub y_axis: Vec3A,
